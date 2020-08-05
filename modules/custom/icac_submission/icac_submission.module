@@ -1,0 +1,52 @@
+<?php
+
+/**
+ * @file
+ * Module file for icac_submission.
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\media\Entity\Media;
+
+/**
+ * Create media entity.
+ */
+function icac_submission_create_media_from_fid($fid) {
+  $media_type = 'icac_submission_aud';
+  $media = Media::create([
+    'bundle' => $media_type,
+  ]);
+  $media->field_media_document->target_id = $fid;
+  $media->save();
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_insert().
+ */
+function icac_submission_node_insert(EntityInterface $entity) {
+  if ($entity->bundle() === 'consultas') {
+    $files = $entity->get('field_com_fichero');
+    foreach ($files->referencedEntities() as $file) {
+      $fid = $file->fid->value;
+      icac_submission_create_media_from_fid($fid);
+    }
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_update().
+ */
+function icac_submission_node_update(EntityInterface $entity) {
+  if ($entity->bundle() === 'consultas') {
+    $files = $entity->get('field_com_fichero');
+    foreach ($files->referencedEntities() as $file) {
+      $fid = $file->fid->value;
+      $ids = \Drupal::entityQuery('media')
+        ->condition('field_media_document', $fid)
+        ->execute();
+      if (!count($ids)) {
+        icac_submission_create_media_from_fid($fid);
+      }
+    }
+  }
+}

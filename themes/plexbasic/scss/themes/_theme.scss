@@ -1,0 +1,275 @@
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+html {
+    font-family: $font-primary;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+body {
+	font-family: $font-primary;
+	background: $white;
+	font-size: 15px;
+	line-height: 1.8;
+	font-weight: 400;
+	color: lighten($black,50%);
+	&.menu-show {
+		overflow: hidden;
+		position: fixed;
+		height: 100%;
+		width: 100%;
+	}
+}
+a {
+	transition: .3s all ease;
+	color: $primary;
+	&:hover, &:focus {
+		text-decoration: none;
+		color: $primary;
+		outline: none !important;
+	}
+}
+
+h1, h2, h3, h4, h5,
+.h1, .h2, .h3, .h4, .h5 {
+	line-height: 1.5;
+	color: $black;
+	font-weight: 400;
+}
+
+h3 {
+	color: $quarternary;
+	font-size: 20px;
+	font-weight: 600;
+}
+
+main {
+	background-color: $white;
+	.container{
+		padding: 20px 0;
+
+		.region{
+			padding: 0;
+		}
+
+    .region-content{
+      padding: 10px;
+
+      .page-title,
+      .block-page-title-block {
+        color: $quarternary;
+        font-size: 30px;
+      }
+
+    }
+
+
+	}
+}
+
+
+
+.path-node {
+  h1{
+    color: $quarternary !important;
+    font-size: 40px;
+  }
+
+  .auditoria {
+    color: black;
+  }
+
+  .separator {
+    width: 98%;
+    border-top: 1px solid #dee2e6;
+    margin-top: 15px;
+    margin-bottom: 30px;
+  }
+
+  .published_on .field{
+    display: inline-block;
+  }
+}
+
+.view-normativas .views-exposed-form,
+.view-normativas-de-contabilidad .views-exposed-form
+{
+  display:none;
+}
+
+#ftco-loader {
+	position: fixed;
+	width:  96px;
+	height: 96px;
+	left:  50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	background-color: rgba(255,255,255,0.9);
+	box-shadow: 0px 24px 64px rgba(0,0,0,0.24);
+	border-radius:16px;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity .2s ease-out, visibility 0s linear .2s;
+	z-index:1000;
+}
+
+#ftco-loader.fullscreen {
+	padding:  0;
+	left:  0;
+	top:  0;
+	width:  100%;
+	height: 100%;
+	transform: none;
+	background-color: #fff;
+	border-radius: 0;
+	box-shadow: none;
+}
+.enlace {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-top: 20px;
+  a {
+    font-size: 15px;
+    color: $black;
+    font-weight: bold;
+    &::before{
+      content: "» ";
+    }
+  }
+  .label {
+    display: none;
+  }
+}
+
+#ftco-loader.show {
+	transition: opacity .4s ease-out, visibility 0s linear 0s;
+	visibility: visible;
+	opacity: 1;
+}
+
+#ftco-loader .circular {
+  animation: loader-rotate 2s linear infinite;
+  position: absolute;
+  left:  calc(50% - 24px);
+  top:  calc(50% - 24px);
+  display: block;
+  transform: rotate(0deg);
+}
+
+#ftco-loader .path {
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 0;
+  animation: loader-dash 1.5s ease-in-out infinite;
+  stroke-linecap: round;
+}
+
+@keyframes loader-rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loader-dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35px;
+  }
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -136px;
+  }
+}
+
+.container {
+	@media screen and (max-width:2000px) {
+		max-width: 1314px;
+    }
+}
+
+.field-look{
+  .field{
+    display: inline-block;
+  }
+  label{
+    font-weight: 600;
+  }
+}
+
+.btn-view-more {
+  background: $fifth;
+  color: $white;
+  border: none;
+  border-radius: 0;
+  padding: 10px;
+  float: right;
+  &:hover{
+    color: $white;
+
+  }
+}
+
+.document {
+  display: flex;
+  .field__label  {
+    display: none;
+  }
+  a {
+    color: $black;
+    font-weight: 600;
+  }
+  .document-icon {
+    width: 32px;
+    height: 32px;
+    background: url(../images/pdf-file.png) no-repeat center;
+    margin-right: 5px;
+  }
+  .download-document{
+    margin-left: 5px;
+    a {
+      color: $gold;
+      font-weight: 400;
+    }
+  }
+}
+
+.form-control{
+  border-radius: 0;
+}
+.field--type-webform {
+  .field__label,
+  .fieldset-legend{
+    display: none;
+  }
+}
+.fieldset-wrapper {
+  width: 800px;
+
+  .btn, a.button {
+    border-radius: 0;
+  }
+
+  .webform-button--submit {
+    background-color: $fifth;
+    border: 0;
+  }
+
+  .webform-button--reset {
+    background-color: $secondary;
+    border: 0;
+  }
+  .form-actions {
+    text-align: right;
+  }
+}
+.view-criterios-de-supervision .item-list{
+  margin-top: 30px;
+}
+

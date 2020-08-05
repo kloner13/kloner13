@@ -1,0 +1,23 @@
+<div class="advertisements">
+    <div class="title">  
+        <span class="main-title">
+        <i class="icon-info"></i> 
+        </span>Avisos
+    </div>
+    
+        <div class="advertisement swiper-container">
+                <div class="swiper-wrapper">
+                {% for key, dato in data %}
+                <div class="swiper-slide">
+                    <a href="{{dato.marquee_link}}">{{dato.marquee_description}}</a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    {#% endfor %#}
+
+    <div class="buttons">
+        <button class="left swiper-button-prev">«
+        </button><button class="right swiper-button-next">»
+    </button></div>
+</div>

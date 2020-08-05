@@ -1,0 +1,6 @@
+plexbasic.admin:
+  title: 'Plexbasic module settings'
+  description: 'get admin settings page link'
+  parent: system.admin_config_development
+  route_name: plexbasic.content
+  weight: 100

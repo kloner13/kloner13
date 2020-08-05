@@ -1,0 +1,114 @@
+<?php
+
+/**
+ * Implements hook_theme()
+ */
+function plexbasic_settings_theme($existing, $type, $theme, $path){
+
+   return [
+
+        'plexbasic_settings_social_networks' => [
+            'variables' => [
+                'social_networks' => NULL
+            ],
+            'template' => 'block--plexbasic-settings-social-networks'
+        ],
+
+        'plexbasic_settings_logo_header' => [
+            'variables' => [
+                'logos' => NULL
+            ],
+            'template' => 'block--plexbasic-settings-logo-header'
+        ],
+
+        'plexbasic_settings_logo_footer' => [
+            'variables' => [
+                'logo' => NULL,
+                'title' => NULL,
+                'url' => NULL
+            ],
+            'template' => 'block--plexbasic-settings-logo-footer'
+        ],
+
+        'plexbasic_settings_featured' => [
+            'variables' => [
+                'data' => NULL,
+                'ext' => NULL
+            ],
+            'template' => 'block--plexbasic-settings-featured'
+        ],
+
+        'plexbasic_settings_marquee' => [
+            'variables' => [
+                'data' => NULL,
+            ],
+            'template' => 'block--plexbasic-settings-marquee'
+        ],
+
+        'plexbasic_settings_links_interest' => [
+            'variables' => [
+                'data' => NULL
+            ],
+            'template' => 'block--plexbasic-settings-links-interest'
+        ],
+
+         'plexbasic_custom_filters_normative' => [
+            'variables' => [
+
+            ],
+           'template' => 'block--plexbasic-custom-filter-normative'
+         ],
+    ];
+
+}
+
+/**
+ * Implements hook_preprocess_input()
+ */
+function plexbasic_settings_preprocess_input(&$variables){
+    $element = $variables['element'];
+
+    if(isset($variables['element']['#title']) &&
+        $variables['element']['#title'] == 'Search'){
+            $variables['attributes']['placeholder'] = 'Buscar';
+    }
+
+}
+
+function plexbasic_settings_preprocess_block(&$variables) {
+    $plugin_id = $variables['elements']['#base_plugin_id'];
+    $element_id = $variables['elements']['#id'];
+
+    $col_4 = [
+        'Featured_block',
+        'Icacreleases_block'
+    ];
+
+    $col_8 = [
+        'homesliders',
+        'info'
+    ];
+
+    if ( in_array($plugin_id, $col_4)) {
+        $variables['attributes']['class'][] = 'col-md-4';
+
+        if($plugin_id == 'Icacreleases_block'){
+            $variables['attributes']['class'][] = 'releases';
+        }
+    }
+
+    if($plugin_id == 'Marquee_block'){
+        $variables['attributes']['class'][] = 'ftco-advertisements';
+        $variables['attributes']['class'][] = 'row';
+        $variables['attributes']['class'][] = 'justify-content-center';
+        $variables['attributes']['class'][] = 'align-items-center';
+    }
+
+    if(in_array($element_id, $col_8)){
+        $variables['attributes']['class'][] = 'col-md-8';
+        if($element_id == 'info'){
+            $variables['attributes']['class'][] = 'flex';
+        }
+    }
+
+}

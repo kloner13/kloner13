@@ -1,0 +1,66 @@
+<?php
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\node\NodeInterface;
+use Drupal\node\Entity\Node;
+use Drupal\Core\Form\FormStateInterface;
+use Symfony\Component\HttpFoundation\Response;
+
+/**
+ * Implements hook_help().
+ */
+function icacnormative_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.icacnormative':
+      return t('
+        <h2>Gestión de contenido para Sección de Normativas</h2>
+        <h3>Ayuda:</h3>
+        <p>- Gestión de Información sobre Normativas.</p>
+        <p>- Información sobre datos obtenenidos por xml.</p>
+      ');
+  }
+}
+
+/*
+ * Implements hook_form_alter().
+ */
+function icacnormative_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+
+  if($form_id == "node_icacnormative_form") {
+    $form['icacnormative_estado']['#states'] = [
+      'invisible' => [
+        [':input[name="icacnormative_tipo"]' => ['value' => 'Internacional']],
+        'or',
+        [':input[name="icacnormative_tipo"]' => ['value' => '_none']],
+      ],
+      'visible' => [
+        [':input[name="icacnormative_tipo"]' => ['value' => 'Nacional']],
+      ],
+    ];
+
+    $form['icacnormative_subtipo']['#states'] = [
+      'invisible' => [
+        [':input[name="icacnormative_tipo"]' => ['value' => 'Internacional']],
+        'or',
+        [':input[name="icacnormative_tipo"]' => ['value' => '_none']],
+      ],
+      'visible' => [
+        [':input[name="icacnormative_tipo"]' => ['value' => 'Nacional']],
+      ],
+    ];
+
+    $form['icacnormative_subseccion']['#states'] = [
+      'invisible' => [
+        [':input[name="icacnormative_subtipo"]' => ['value' => 'Otra normativa nacional']],
+        'or',
+        [':input[name="icacnormative_subtipo"]' => ['value' => '_none']],
+        'or',
+        [':input[name="icacnormative_subtipo"]' => ['value' => 'Normativa de otros trabajos desarrollados por auditores']],
+      ],
+      'visible' => [
+        [':input[name="icacnormative_subtipo"]' => ['value' => 'Normativa aplicable a la auditoría de cuentas']],
+      ],
+    ];
+
+  }
+}

@@ -1,0 +1,5 @@
+administer icac releases:
+  title: 'Administer icac releases settings'
+  restrict access: true
+access icac releases overview:
+  title: 'Access icac releases overview page'

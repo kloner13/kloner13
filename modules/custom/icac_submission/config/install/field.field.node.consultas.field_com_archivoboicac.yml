@@ -1,0 +1,27 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_com_archivoboicac
+    - media.type.icac_boicac
+    - node.type.consultas
+id: node.consultas.field_com_archivoboicac
+field_name: field_com_archivoboicac
+entity_type: node
+bundle: consultas
+label: 'Archivo BOICAC'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      icac_boicac: icac_boicac
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

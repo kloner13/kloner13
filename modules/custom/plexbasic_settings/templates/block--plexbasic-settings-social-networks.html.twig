@@ -1,0 +1,8 @@
+
+<div>
+    <ul class="ftco-social list-unstyled">
+        {% for key, social_network in social_networks %}
+            <li><a href="{{ social_network.url|e  }}" target="_blank"><span class="icon-{{ social_network.title }}"></span></a></li>
+        {% endfor %}
+    </ul>
+</div>

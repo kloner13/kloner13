@@ -1,0 +1,55 @@
+<?php
+
+use Drupal\taxonomy\Entity\Term;
+use Drupal\Core\Entity\EntityTypeManager;
+use Drupal\Core\File\File;
+use Drupal\Core\Entity\EntityStorageInterface;
+use Drupal\node\Entity\Node;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\TypedData\DataDefinition;
+use Drupal\media_entity\Entity\Media;
+
+function icac_releases_install(){
+  create_media_category();
+}
+
+/**
+ * Create a new Media for ICAC Releases PDF documents
+ */
+function create_media_category(){
+  $bundleid = 'icac_comunicados';
+
+  $entityBundle= \Drupal\media\Entity\MediaType::load($bundleid);
+
+  if(!$entityBundle) {
+    $settings = array(
+      'description' => TRUE,
+      'file_extensions'=>'pdf doc odt txt rar zip gz docx'
+    );
+
+    $name = 'Documento';
+    $type = 'document';
+
+    $entityBundle=\Drupal\media\Entity\MediaType::load($type);
+    $mediaType = $entityBundle->createDuplicate();
+    $mediaType->set('id',$bundleid);
+    $mediaType->set('label',$name);
+    $mediaType->set('source','file');
+    $mediaType->set('weight',1);
+    $mediaType->save();
+    $data=array(
+      'field_name' => 'field_media_document',
+      'entity_type' => 'media',
+      'type'=>'file',
+      'weight' => 0,
+      'bundle'=>$bundleid,
+      'label'=>$name,
+      'settings' => $settings
+    );
+    $field = \Drupal\field\Entity\FieldConfig::create($data);
+    $field->save();
+
+    entity_get_form_display('media', $bundleid, 'default')->setComponent('field_media_document', array())->save();
+    entity_get_display('media',$bundleid, 'default')->setComponent('field_media_document', array())->save();
+  }
+}

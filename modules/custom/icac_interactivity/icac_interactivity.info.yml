@@ -1,0 +1,7 @@
+name: Sección Actividad Internacional.
+description: "Módulo para Gestión de Actividad Internacional."
+type: module
+package: ICAC
+core: 8.x
+core_version_requirement: ^8 || ^9
+version: 0.1

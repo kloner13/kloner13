@@ -1,0 +1,60 @@
+<?php
+
+/**
+ * @file
+ * Provides an icac releases entity type.
+ */
+
+use Drupal\Core\Render\Element;
+use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
+
+/**
+ * Implements hook_theme().
+ */
+function icac_releases_theme() {
+  return [
+    'icac_releases' => [
+      'render element' => 'elements',
+    ],
+    'icac_releases_list' => [
+      'variables' => [
+        'data' => NULL
+      ],
+      'template' => 'block--icac-releases-list'
+    ],
+  ];
+}
+
+/**
+ * Prepares variables for icac releases templates.
+ *
+ * Default template: icac-releases.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - elements: An associative array containing the icac releases information and any
+ *     fields attached to the entity.
+ *   - attributes: HTML attributes for the containing element.
+ */
+function template_preprocess_icac_releases(array &$variables) {
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
+  }
+}
+/**
+ * Add 'type' field to 'icac_releases' entity.
+ */
+function icac_releases_update_8011() {
+  /*$storage_definition = BaseFieldDefinition::create('string')
+      ->setLabel(t('ICAC Releases type'))
+      ->setDescription(t('Indicates the type of ICAC Releases'))
+      ->setReadOnly(TRUE)
+      ->setRevisionable(TRUE)
+      ->setTranslatable(TRUE);
+
+  \Drupal::entityDefinitionUpdateManager()
+    ->installFieldStorageDefinition('type_release', 'icac_releases', 'icac_releases', $storage_definition);*/
+} 
+
+

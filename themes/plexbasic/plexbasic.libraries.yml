@@ -1,0 +1,26 @@
+global:
+  version: 1.x
+  css:
+    theme:
+      css/main.css: {}
+    component:
+      css/icomoon.css: {}
+      css/owl.carousel.min.css: {}
+      css/owl.theme.default.min.css: {}
+  js:
+    js/owl.carousel.min.js: {}
+    js/swiper.min.js: {}
+    js/main.js: {}
+  dependencies:
+    - core/jquery
+
+font-awesome:
+  remote: https://fonts.google.com/specimen/Montserrat
+  version: 1.0.0
+  license:
+    name: MIT
+    url: https://fonts.google.com/specimen/Montserrat#license
+    gpl-compatible: true
+  css:
+    theme:
+      https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap: { type: external, minified: true }

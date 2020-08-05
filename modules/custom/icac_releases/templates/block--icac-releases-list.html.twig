@@ -1,0 +1,15 @@
+
+<h3>Comunicados</h3>
+<div>
+  <ul>
+    {% for key, dato in data %}
+      <li>
+        {{ dato.title }}
+        <a href="{{ dato.url }}">[ver PDF]</a>
+      </li>
+    {% endfor %}
+  </ul>
+  <a class="show-releases" href="/comunicados">ver todos los comunicados</a>
+  <div class="clear"></div>
+</div>
+

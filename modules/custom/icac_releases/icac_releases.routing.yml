@@ -1,0 +1,7 @@
+entity.icac_releases.settings:
+  path: 'admin/structure/icac-releases'
+  defaults:
+    _form: '\Drupal\icac_releases\Form\IcacReleasesSettingsForm'
+    _title: 'Comunicados'
+  requirements:
+    _permission: 'administer icac releases'

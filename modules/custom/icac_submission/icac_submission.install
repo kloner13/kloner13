@@ -1,0 +1,247 @@
+<?php
+
+/**
+ * @file
+ * Consultas content type creation.
+ */
+
+use Drupal\media\Entity\MediaType;
+use Drupal\field\Entity\FieldConfig;
+use Drupal\field\Entity\FieldStorageConfig;
+
+/**
+ * Implements hook_install().
+ */
+function icac_submission_install() {
+  //_icac_submission_crea_type_contenido();
+  _icacnormative_crea_tipo_contenido();
+}
+
+
+function _icacnormative_crea_tipo_contenido(){
+
+
+  /* Check Media Type -consulta Auditoría- */
+  $bundleid='icac_submission_aud';
+  $entityBundle=\Drupal\media\Entity\MediaType::load($bundleid);
+
+  if(!$entityBundle) {
+
+    $settings = array(
+      'description' => TRUE,
+      'file_extensions'=>'pdf doc odt txt xml xls gz docx'
+     );
+
+    $name = 'Presentacón Consultas Aud';
+    $tipo = 'document';
+
+    $entityBundle=\Drupal\media\Entity\MediaType::load($tipo);
+    $mediaType = $entityBundle->createDuplicate();
+    $mediaType->set('id',$bundleid);
+    $mediaType->set('label',$name);
+    $mediaType->set('source','file');
+    $mediaType->set('weight',1);
+    $mediaType->save();
+
+    $data = array(
+      'field_name' => 'field_media_document',
+      'entity_type' => 'media',
+      'type'=>'file',
+      'weight' => 30,
+      'bundle'=>$bundleid,
+      'label'=>$name,
+      'settings' => $settings
+    );
+
+    $field = \Drupal\field\Entity\FieldConfig::create($data);
+    $field->save();
+
+    entity_get_form_display('media', $bundleid, 'default')
+      ->setComponent('field_media_document', array())
+      ->save();
+
+    entity_get_display('media',$bundleid, 'default')
+      ->setComponent('field_media_document', array())
+      ->save();
+  }
+
+  /* Check Media Type -Consulta Contabilidad- */
+  $bundleid='icac_submission_con';
+  $entityBundle=\Drupal\media\Entity\MediaType::load($bundleid);
+
+  if(!$entityBundle) {
+
+    $settings = array(
+      'description' => TRUE,
+      'file_extensions'=>'pdf doc odt txt xml xls gz docx'
+     );
+
+    $name = 'Presentacón Consultas Con';
+    $tipo = 'document';
+
+    $entityBundle=\Drupal\media\Entity\MediaType::load($tipo);
+    $mediaType = $entityBundle->createDuplicate();
+    $mediaType->set('id',$bundleid);
+    $mediaType->set('label',$name);
+    $mediaType->set('source','file');
+    $mediaType->set('weight',1);
+    $mediaType->save();
+
+    $data = array(
+      'field_name' => 'field_media_document',
+      'entity_type' => 'media',
+      'type'=>'file',
+      'weight' => 30,
+      'bundle'=>$bundleid,
+      'label'=>$name,
+      'settings' => $settings
+    );
+
+    $field = \Drupal\field\Entity\FieldConfig::create($data);
+    $field->save();
+
+    entity_get_form_display('media', $bundleid, 'default')
+      ->setComponent('field_media_document', array())
+      ->save();
+
+    entity_get_display('media',$bundleid, 'default')
+      ->setComponent('field_media_document', array())
+      ->save();
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * Create media bundle.
+ */
+/* function _icac_submission_create_media_bundle($bundle_id, $name) {
+  $entity_bundle = MediaType::load($bundle_id);
+  if (!$entity_bundle) {
+    $settings = [
+      'description' => TRUE,
+      'file_extensions' => 'pdf doc odt txt docx jpg png jpeg',
+    ];
+    $type = 'document';
+    $entity_bundle = MediaType::load($type);
+    $mediaType = $entity_bundle->createDuplicate();
+    $mediaType->set('id', $bundle_id);
+    $mediaType->set('label', $name);
+    $mediaType->set('source', 'file');
+    $mediaType->set('weight', 1);
+    $mediaType->save();
+
+    $data = [
+      'field_name' => 'field_media_document',
+      'entity_type' => 'media',
+      'type' => 'file',
+      'weight' => 30,
+      'bundle' => $bundle_id,
+      'label' => $name,
+      'settings' => $settings,
+    ];
+    $field = FieldConfig::create($data);
+    $field->save();
+    entity_get_form_display('media', $bundle_id, 'default')
+      ->setComponent('field_media_document', [])
+      ->save();
+    entity_get_display('media', $bundle_id, 'default')
+      ->setComponent('field_media_document', [])
+      ->save();
+  }
+} */
+
+/**
+ * Create field.
+ */
+/* function _icac_submission_create_field($field_media, $bundle_id, $label) {
+  $field_definitions = [];
+  if (!isset($field_definitions[$field_media])) {
+    $field_storage = FieldStorageConfig::loadByName('node', $field_media);
+    if (!$field_storage) {
+      $data = [
+        'field_name' => $field_media,
+        'entity_type' => 'node',
+        'type' => 'entity_reference',
+        'cardinality' => 1,
+      ];
+      $field_storage = FieldStorageConfig::create($data);
+      $field_storage->setSetting('target_type', 'media');
+      $field_storage->save();
+    }
+    $data = [
+      'field_name' => $field_media,
+      'entity_type' => 'node',
+      'bundle' => $bundle_id,
+      'label' => $label,
+      'settings' => [
+        'handler_settings' => [
+          'target_bundles' => [
+            'media' => $bundle_id,
+          ],
+        ],
+      ],
+    ];
+    $field = FieldConfig::create($data);
+    $field->save();
+    entity_get_form_display('node', $bundle_id, 'default')
+      ->setComponent($field_media, [])
+      ->save();
+    entity_get_display('node', $bundle_id, 'default')
+      ->setComponent($field_media, [])
+      ->save();
+  }
+} */
+
+/**
+ * Create content type.
+ */
+/* function _icac_submission_crea_type_contenido() {
+  // Media Type -Consultas Auditoría-.
+  $bundle_id = 'icac_submission_aud';
+  $name = 'Presentacón Consultas Aud';
+  _icac_submission_create_media_bundle($bundle_id, $name);
+
+  // Media Type -Consultas Contabilidad-.
+  $bundle_id = 'icac_submission_con';
+  $name = 'Presentacón Consultas Con';
+  _icac_submission_create_media_bundle($bundle_id, $name);
+
+  // Media Type -Consultas BOICAC.
+  $bundle_id = 'icac_boicac';
+  $name = 'BOICAC';
+  _icac_submission_create_media_bundle($bundle_id, $name);
+
+  // Media Type -Consultas Auditoría-.
+  $bundle_id = 'icac_submission_aud';
+  $field_media = 'field_icac_submission_aud';
+  $label = 'Consulta Auditoría';
+  _icac_submission_create_field($field_media, $bundle_id, $label);
+
+  // Media Type -Consultas Contabilidad-.
+  $bundle_id = 'icac_submission_con';
+  $field_media = 'field_icac_submission_con';
+  $label = 'Consulta Contabilidad';
+  _icac_submission_create_field($field_media, $bundle_id, $label);
+*/
+  // Media Type -Consultas BOICAC.
+ // $bundle_id = 'icac_boicac';
+//  $field_media = 'field_icac_boicac';
+//  $label = 'BOICAC';
+//  _icac_submission_create_field($field_media, $bundle_id, $label);
+
+//}

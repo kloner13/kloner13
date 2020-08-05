@@ -1,0 +1,10 @@
+entity.icac_releases.settings:
+  title: Comunicados
+  description: Configurar Tipo de Entidad Comunicados
+  route_name:  entity.icac_releases.settings
+  parent: system.admin_structure
+entity.icac_releases.collection:
+  title: Comunicados
+  description: Lista de todos los comunicados
+  route_name: entity.icac_releases.collection
+  parent: system.admin_content

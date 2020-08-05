@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_com_dnicif
+    - node.type.consultas
+id: node.consultas.field_com_dnicif
+field_name: field_com_dnicif
+entity_type: node
+bundle: consultas
+label: DNI/CIF
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

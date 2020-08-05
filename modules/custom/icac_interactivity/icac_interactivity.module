@@ -1,0 +1,22 @@
+<?php
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\node\NodeInterface;
+use Drupal\node\Entity\Node;
+
+use Symfony\Component\HttpFoundation\Response;
+
+/**
+ * Implements hook_help().
+ */
+function icac_interactivity_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.icac_interactivity':
+      return t('
+        <h2>Gestión de contenido para Sección de Actividad Internacional</h2>
+        <h3>Ayuda:</h3>
+        <p>- Gestión de Información sobre Actividad Internacional.</p>
+        <p>- Información sobre datos obtenenidos por tipo de contenido.</p>
+      ');
+  }
+}

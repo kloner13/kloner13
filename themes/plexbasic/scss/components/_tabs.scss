@@ -1,0 +1,20 @@
+.nav-tabs{
+  margin-top: 50px;
+  margin-bottom: 50px;
+  li{
+    a {
+      color: rgba(79, 114, 161) ;
+      font-weight: 600;
+      padding: 10px 40px;
+    }
+  }
+  li.active{
+    a{
+      background: white;
+      color: $fifth;
+    }
+  }
+  .nav-link{
+    border-radius: 0;
+  }
+}

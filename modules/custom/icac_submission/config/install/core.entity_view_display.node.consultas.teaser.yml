@@ -1,0 +1,47 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.consultas.field_com_apellidos
+    - field.field.node.consultas.field_com_archivoboicac
+    - field.field.node.consultas.field_com_asunto
+    - field.field.node.consultas.field_com_categoria
+    - field.field.node.consultas.field_com_consulta
+    - field.field.node.consultas.field_com_dnicif
+    - field.field.node.consultas.field_com_email
+    - field.field.node.consultas.field_com_fichero
+    - field.field.node.consultas.field_com_nombres
+    - field.field.node.consultas.field_com_numboicac
+    - field.field.node.consultas.field_com_publicada
+    - field.field.node.consultas.field_com_respenviada
+    - field.field.node.consultas.field_com_resppublicada
+    - field.field.node.consultas.field_com_terminos_legales
+    - node.type.consultas
+  module:
+    - user
+id: node.consultas.teaser
+targetEntityType: node
+bundle: consultas
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_com_apellidos: true
+  field_com_archivoboicac: true
+  field_com_asunto: true
+  field_com_categoria: true
+  field_com_consulta: true
+  field_com_dnicif: true
+  field_com_email: true
+  field_com_fichero: true
+  field_com_nombres: true
+  field_com_numboicac: true
+  field_com_publicada: true
+  field_com_respenviada: true
+  field_com_resppublicada: true
+  field_com_terminos_legales: true

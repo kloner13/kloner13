@@ -1,0 +1,7 @@
+plexbasic.content:
+  path: '/plexbasic'
+  defaults:
+    _controller: '\Drupal\plexbasic_settings\Controller\PlexbasicController::content'
+    _title: 'Plexbasic'
+  requirements:
+    _permission: 'access content'

@@ -1,0 +1,82 @@
+.block-filter-normative-block,
+.block-filter-contabilidad-nacional-block,
+.block-filter-contabilidad-inter-block
+{
+  margin-bottom: 20px;
+  .icacnormative_estado,
+  .icacnormativecon_estado,
+  .icacnormativeconinter_estado{
+    border-radius: 0;
+    font-size: 14px;
+    background-color: $quarternary;
+    border: none;
+    color: $white;
+    &:focus{
+      background-color: $fifth;
+    }
+
+    &.active{
+      background-color: $fifth;
+    }
+    i{
+      margin: 5px;
+      font-size: 15px;
+      display: inline-block;
+      position: relative;
+      top: 2px;
+    }
+  }
+
+  .card-primary{
+    border: none;
+    padding: 0;
+    font-size: 14px;
+    .card{
+      border: 0;
+      .card-header {
+        padding: 0;
+        background: $white;
+        border: none;
+        button{
+          font-size: 14px;
+          color: $fifth;
+         &:before{
+          display: inline-block;
+          padding-right: 0.5em;
+          font-weight: 700;
+          text-align: right;
+          content: "»";
+         }
+         &.active {
+           font-weight: 600;
+         }
+        }
+        
+      }
+
+    }
+    
+  }
+
+  .icacnormative_subseccion,
+  .icacnormativecon_subadaptacion,
+  .icacnormativecon_subresolucion,
+  .icacnormativecon_subotra, 
+  .icacnormativecon_intnif,
+  .icacnormativecon_intdirect {
+    list-style: none;
+    a{
+      cursor: pointer;
+      &.active{
+        font-weight: 600;
+      }
+    }
+  }
+
+  .collapse{
+    .card-body{
+      padding: 0;
+    }
+  }
+
+}

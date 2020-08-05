@@ -1,0 +1,8 @@
+<div class="logotipo">
+{% for key, logo in logos %}
+    <a href="{{ logo.logo_url|e  }}">
+        <img src="{{ logo.logo_image_url  }}" title="{{ logo.logo_title|e  }}" />
+    </a>
+{% endfor %}
+</div>
+

@@ -1,0 +1,7 @@
+name: Importador de Vistas.
+description: "Módulo para importar vistas."
+type: module
+package: ICAC
+core: 8.x
+core_version_requirement: ^8 || ^9
+version: 0.1

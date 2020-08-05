@@ -1,0 +1,11 @@
+<h3>Enlaces de Interes</h3>
+
+<div class="row link-int-container justify-content-center">
+    {% for key, logo in data %}
+        <div class="col-md-3">
+            <a src="{{ logo.url }}" class="link-int bg-primary" title="{{ logo.title }}">
+                <!--<img src="{#{ logo.image_url }#}" />-->
+            </a>
+        </div>
+    {% endfor %}
+</div>

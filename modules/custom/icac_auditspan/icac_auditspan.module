@@ -1,0 +1,22 @@
+<?php
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\node\NodeInterface;
+use Drupal\node\Entity\Node;
+
+use Symfony\Component\HttpFoundation\Response;
+
+/**
+ * Implements hook_help().
+ */
+function icac_auditspan_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.icac_auditspan':
+      return t('
+        <h2>Gestión de contenido para Sección de Auditorías en España</h2>
+        <h3>Ayuda:</h3>
+        <p>- Gestión de Información sobre Auditorías en España.</p>
+        <p>- Información sobre datos obtenenidos por xml.</p>
+      ');
+  }
+}

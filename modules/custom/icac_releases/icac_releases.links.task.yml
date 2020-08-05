@@ -1,0 +1,22 @@
+entity.icac_releases.settings:
+  title: Settings
+  route_name: entity.icac_releases.settings
+  base_route: entity.icac_releases.settings
+entity.icac_releases.view:
+  title: View
+  route_name: entity.icac_releases.canonical
+  base_route: entity.icac_releases.canonical
+entity.icac_releases.edit_form:
+  title: Edit
+  route_name: entity.icac_releases.edit_form
+  base_route: entity.icac_releases.canonical
+entity.icac_releases.delete_form:
+  title: Delete
+  route_name: entity.icac_releases.delete_form
+  base_route: entity.icac_releases.canonical
+  weight: 10
+entity.icac_releases.collection:
+  title: Comunicados
+  route_name: entity.icac_releases.collection
+  base_route: system.admin_content
+  weight: 10

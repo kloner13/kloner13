@@ -1,0 +1,27 @@
+uuid: 0b297751-da39-42f1-9c62-a304d8d6137d
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_media_document
+    - media.type.icac_boicac
+  module:
+    - file
+id: media.icac_boicac.field_media_document
+field_name: field_media_document
+entity_type: media
+bundle: icac_boicac
+label: Archivo
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_extensions: 'txt doc docx pdf'
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  max_filesize: ''
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

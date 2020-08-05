@@ -1,0 +1,20 @@
+.pager {
+    text-align: center;
+    li.btn-secondary,
+    li.btn-light{
+        background: none;
+        border: 0;
+        a {
+            color: $gold;
+            font-weight: 400;
+        }
+        &.active{
+            background-color: #ffffff !important;
+            border: 0;
+            a{
+                font-weight: bold;
+            }
+            
+        }
+    }
+}

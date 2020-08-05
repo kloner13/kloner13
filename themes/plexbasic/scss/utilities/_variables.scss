@@ -1,0 +1,31 @@
+
+$font-primary: 'Montserrat', sans-serif;
+
+$white: #fff;
+$black: #000000;
+
+
+$primary: #5073a1;
+$secondary: #7e7f82;
+$tertiary: #f2f2f3;
+$quarternary: #a63333;
+$fifth: #444444;
+$separator: #c1c1c1;
+$gold: #e09d0c;
+
+$menu_color: rgba(79, 114, 161, 0.80);
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+) !default;
+
+
+$example_primary: #00bdaa;
+$example_secondary: #f1648f;
+$example_tertiary: #8cc152;
+$example-quarternary: #f1453d;
+$example-fifth: #5d50c6;

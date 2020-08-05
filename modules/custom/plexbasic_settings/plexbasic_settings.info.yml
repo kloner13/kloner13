@@ -1,0 +1,6 @@
+name: Plexbasic Module for plexbasic theme
+description: Customize blocks and sections for plexbasic theme.
+package: ICAC
+type: module
+version: 1.0
+core: 8.x

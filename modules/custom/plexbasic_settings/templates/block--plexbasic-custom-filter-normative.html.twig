@@ -1,0 +1,59 @@
+<p>
+  <button class="btn icacnormative_estado" data-value="1" type="button" ><i class="icon-tag"></i>Normativa Vigente aplicable a la auditoría</button>
+  <button class="btn icacnormative_estado" data-value="2" type="button"><i class="icon-tag"></i>Normativa de auditoría Derogada</button>
+</p>
+<div class="row">
+  <div class="col">
+    <div class="collapse multi-collapse" id="multiCollapseNormative">
+      <div class="card card-body card-primary">
+        <div id="accordion">
+          <div class="card">
+            <div class="card-header" id="headingOne">
+              <h5 class="mb-0">
+                <button class="btn btn-link icacnormative_subtipo" data-value="1"  data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  Normativa aplicable a la auditoría de cuentas
+                </button>
+              </h5>
+            </div>
+
+            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+              <div class="card-body">
+                <ul class="icacnormative_subseccion">
+                  <li>
+                    <a  data-value="1">General</a>
+                  </li>
+                  <li >
+                    <a  data-value="2">Normas Técnicas</a>
+                  </li>
+                  <li>
+                    <a  data-value="3">Normas de control de calidad interno</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header" id="headingTwo">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed icacnormative_subtipo" data-value="2" data-toggle="collapse"  aria-expanded="false" >
+                  Otra normativa nacional
+                </button>
+              </h5>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header" id="headingThree">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed icacnormative_subtipo" data-value="3" data-toggle="collapse"  aria-expanded="false" >
+                  Normativa de otros trabajos desarrollados por auditores
+                </button>
+              </h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<hr />

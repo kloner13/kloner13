@@ -1,0 +1,82 @@
+<?php
+/**
+ * @file
+ * Plexbasic theme file.
+ */
+use Drupal\file\Entity\File;
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter() for form templates.
+ * @param array $suggestions
+ * @param array $variables
+ */
+function plexbasic_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+  // Block suggestions for custom block bundles.
+  if (isset($variables['elements']['content']['#block_content'])) {
+    array_splice($suggestions, 1, 0, 'block__bundle__' . $variables['elements']['content']['#block_content']->bundle());
+  }
+}
+
+function plexbasic_preprocess_region(&$variables){
+
+  if(isset($variables['region'])){
+    
+    if($variables['region'] == 'content_home_primary' || $variables['region'] == 'content_home_secondary'){
+      $variables['attributes']['class'][] = 'row';
+    }
+
+    if($variables['region'] == 'footer'){
+      $variables['attributes']['class'][] = 'col-md-5 footer-region';
+    }
+  }
+}
+/**
+ * Implements hook_preprocess_node().
+ * @param $variables
+ */
+function plexbasic_preprocess_node(&$variables){
+  $node = $variables['elements']['#node'];
+  $bundle = $node->bundle();
+
+  $bundles_allow = [
+    'icac_auditspan',
+    'icac_interactivity',
+    'icacnormative',
+    'icacnormativecon'
+  ];
+
+  if(in_array($bundle, $bundles_allow)){
+
+    $document_pdf = '';
+
+    if($bundle == 'icac_auditspan'){
+      $document_pdf = $node->get('field_auditoriasmedia')->getValue();
+    }
+
+    if($bundle == 'icac_interactivity'){
+      $document_pdf = $node->get('field_interactivitymedia')->getValue();
+    }
+
+    if($bundle == 'icacnormative'){
+      $document_pdf = $node->get('field_icacnormative')->getValue();
+    }
+    if($bundle == 'icacnormativecon'){
+      $document_pdf = $node->get('field_icacnormativecon')->getValue();
+    }
+    
+
+
+
+    if (!empty($document_pdf)) {
+      $entity = \Drupal\media\Entity\Media::load($document_pdf[0]['target_id']);
+	  if($entity != null){
+		  $file_url = $entity->field_media_document->entity->getFileUri();
+
+		  $variables['document_title'] = $entity->field_media_document->entity->getFileName();
+		  $variables['document_pdf'] = file_create_url($file_url);
+	  }else{
+		  $variables['document_title'] = $variables['document_pdf'] = '';
+	  }
+    }
+  }
+}

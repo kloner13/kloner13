@@ -1,0 +1,97 @@
+.item-list{
+  ul {
+    list-style: none;
+    li {
+      padding-bottom: 15px;
+      margin: 0 0 15px 0;
+      border-bottom: 1px solid #dee2e6;
+      color: $fifth;
+      .views-field {
+        .views-label {
+          display: inline-block;
+          margin-right: 5px;
+          font-weight: 500;
+        }
+        .field-content {
+          display: inline-block;
+        }
+        &.views-field-field-media-document{
+          border-top:1px solid rgba(0, 0, 0, 0.1) ;
+          border-bottom:1px solid rgba(0, 0, 0, 0.1) ;
+          padding-top: 15px;
+          padding-bottom: 15px;
+          margin-top: 20px;
+
+          .views-label {
+            display: none;
+          }
+          .file--mime-application-pdf
+          {
+            background: url(../images/pdf-file.png) no-repeat ;
+            padding-left: 40px;
+            min-height: 34px;
+            a {
+              font-size: 15px;
+              color: $black;
+              font-weight: bold;
+            }
+            &::after{
+              content: '(Descargar PDF)';
+              color: $gold;
+              margin-left: 5px;
+              cursor: pointer;
+              &:hover{
+                text-decoration: underline;
+              }
+            }
+            
+          }
+        }
+      }
+
+      .views-field-icac-auditspan-url,
+      .views-field-icacnormative-url,
+      .views-field-icac-interactivity-url,
+      .enlace {
+        border-top:1px solid rgba(0, 0, 0, 0.1) ;
+        border-bottom:1px solid rgba(0, 0, 0, 0.1) ;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        margin-top: 20px;
+        a {
+          font-size: 15px;
+          color: $black;
+          font-weight: bold;
+          &::before{
+            content: "» ";
+          }
+        }
+        .views-label {
+          display: none;
+        }
+      }
+
+      .view-more{
+        display: flex !important;
+        justify-content: flex-end;
+        margin-top: 10px;
+        a {
+          display: block;
+          background: $fifth;
+          color: white;
+          padding: 5px 10px;
+        }
+      }
+   
+      h2 {
+        color: $black;
+        font-size: 21px;
+        margin-bottom: 0;
+
+      }
+      &:last-child{
+        border-bottom: none;
+      }
+    }
+  }
+}

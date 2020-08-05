@@ -1,0 +1,16 @@
+
+  <ul class="left-side-home list-unstyled">
+    {% for key, dato in data %}
+    <li>
+      <a href="{{ dato.link }}" target="_blank">
+        <div class="ftco-img bg-primary">
+          <img src="{{ dato.logo_image_url }}" width="397px" height="95px">
+        </div>
+        <div class="title">
+          <p>{{ dato.title }}</p>
+        </div>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+

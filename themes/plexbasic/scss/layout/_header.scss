@@ -1,0 +1,154 @@
+header{
+    background: url('../images/background.png');
+    background-size: cover;
+
+    .ftco-header-main{
+        
+        height: 133px;
+        &.row{
+            margin-right: 0;
+            margin-left: 0;
+        }
+    }
+    #block-logoheaderblock{
+        div.logotipo{
+            display: inline;
+            a {
+                display: inline-block;
+                img{
+                    margin-top: 1px;
+                }
+            }
+            
+        }
+    }
+    nav{
+        .region-nav-additional{
+            -webkit-box-ordinal-group: 14;
+            -ms-flex-order: 13;
+            order: 13;
+            input[type='search']{
+                border-radius: 0;
+                border: none;
+                padding: 0.3rem 0.75rem;
+                height: calc(1.5em + 0.5rem + 2px);
+                line-height: 2.5;
+                margin-top: 2px;
+            }
+            input[type='submit']{
+                background: $black url("../images/icon_search.svg") no-repeat center;
+                border-radius: 50% 50%;
+                height: 40px;
+                width: 40px;
+                color:transparent;
+            }
+        }
+        
+    }
+    .navbar {
+        padding: 0.2em 1rem;
+    }
+    .navbar-brand{
+        margin: 15px;
+         div{
+             display: none;
+         }   
+         img {
+             width: 200px;
+             height: auto;
+
+         }
+         
+    }
+    .bg-blue {
+        background-color: $menu_color !important;
+    }
+    .navbar-nav{
+        a{
+            font-size: 17px;
+            color: $white;
+        }
+
+        .dropdown-menu {
+            border-radius: 0;
+            min-width: 0;
+            width: max-content;
+            background-color: $menu_color !important;
+
+            .nav-item{
+                border: none;
+                width: 100%;
+                a{
+                    color: $white;
+                    &:hover{
+                       border: none;
+                       color: $black;
+                    }
+                }
+                &:hover{
+                    border: none;
+                    background: $white;
+
+                }
+                
+            }
+        }
+
+        .nav-item{
+            
+            border-bottom: 2px solid transparent;
+            border-top: 2px solid transparent;
+            .nav-link{
+                padding-right: 2rem;
+                padding-left: 2rem;
+            }
+            &:hover{
+                border-bottom: 2px solid $white;
+                border-top: 2px solid $white;
+            }
+        }
+    }
+    .d-mr {
+        margin-left: -15px;
+    }
+    .ftco-user-preference{
+        float: right;
+       
+        a{
+            font-size: 13px;
+            font-weight: 500;
+        }
+        
+    }
+    .ftco-social {
+        float: right;
+        clear: both;
+        margin-bottom: 5px;
+        margin-top: 5px;
+        li {
+            list-style: none;
+            margin: 0;
+            display: inline-block;
+            a {
+                height: 25px;
+                width: 25px;
+                display: block;
+                float: left;
+                background: $fifth;
+                border-radius: 50%;
+                position: relative;
+                color: $white;
+                span {
+                    position: absolute;
+                    font-size: 14px;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+                &:hover {
+                    //color: $darken;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,7 @@
+name: Sección Auditoría en España.
+description: "Módulo para Gestión de Auditoría en España."
+type: module
+package: ICAC
+core: 8.x
+core_version_requirement: ^8 || ^9
+version: 0.1

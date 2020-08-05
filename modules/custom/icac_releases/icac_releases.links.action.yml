@@ -1,0 +1,5 @@
+icac_releases.add_form:
+  route_name: entity.icac_releases.add_form
+  title: 'Agrega Comunicados'
+  appears_on:
+    - entity.icac_releases.collection

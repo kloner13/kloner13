@@ -1,0 +1,28 @@
+uuid: d33ba47f-4d86-44bf-b2fe-31d6cca8009e
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.media.icac_boicac.field_media_document
+    - media.type.icac_boicac
+  module:
+    - file
+id: media.icac_boicac.default
+targetEntityType: media
+bundle: icac_boicac
+mode: default
+content:
+  field_media_document:
+    label: visually_hidden
+    weight: 0
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    type: file_default
+    region: content
+hidden:
+  created: true
+  langcode: true
+  name: true
+  thumbnail: true
+  uid: true

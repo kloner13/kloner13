@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_com_nombres
+    - node.type.consultas
+id: node.consultas.field_com_nombres
+field_name: field_com_nombres
+entity_type: node
+bundle: consultas
+label: Nombres
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

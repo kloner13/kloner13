@@ -1,0 +1,13 @@
+uuid: 387204c6-012d-4841-90ad-3816e4bc274e
+langcode: es
+status: true
+dependencies: {  }
+id: icac_boicac
+label: BOICAC
+description: ''
+source: file
+queue_thumbnail_downloads: false
+new_revision: false
+source_configuration:
+  source_field: field_media_document
+field_map: {  }
